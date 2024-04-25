@@ -21,3 +21,15 @@ void bd6502ram::readData() {
 void bd6502ram::connectToBus(bd6502bus *bus) {
     this->bus = bus;
 }
+
+void bd6502ram::enable() {
+    if(!RW){
+        readData();
+    }else{
+        writeData();
+    }
+}
+
+void bd6502ram::setRW(bool hl) {
+    this->RW = hl;
+}

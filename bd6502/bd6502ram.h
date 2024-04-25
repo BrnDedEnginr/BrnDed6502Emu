@@ -9,13 +9,17 @@
 class bd6502ram {
 public:
     bd6502bus *bus{};
+    //false read, true write
+    bool RW{};
     std::vector<uint8_t> ram;
     bd6502ram();
-    void writeData();
-    void readData();
+    void enable();
+    void setRW(bool hl);
     void connectToBus(bd6502bus *bus);
 private:
     void initVector();
+    void writeData();
+    void readData();
 };
 
 

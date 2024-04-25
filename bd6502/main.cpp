@@ -9,5 +9,8 @@ int main() {
     ram->connectToBus(bus);
     auto *cpu = new bd6502cpu();
     cpu->connectToBus(bus);
+    cpu->connectToRam(ram);
+    cpu->loadProgram("./hello.bin");
+    cpu->start();
     return 0;
 }
